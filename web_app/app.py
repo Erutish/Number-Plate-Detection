@@ -19,12 +19,11 @@ st.markdown(".......")
 uploaded_file=st.file_uploader("upload an Image", type=["png","jpg","jpeg"])
 upload_path = os.path.join(os.path.dirname(__file__), "uploads")
 upload_path="uploads"
-print(uploaded_file)
+
 if uploaded_file is not None:
-    # construct the path to the uploaded image
-    # and then save it in the `uploads` folder
-    image_path=os.path.sep.join([upload_path,uploaded_file.name])
-    with open(image_path,"wb") as f:
+    os.makedirs(upload_path, exist_ok=True)  # <-- this line ensures uploads/ always exists
+    image_path = os.path.sep.join([upload_path, uploaded_file.name])
+    with open(image_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
 
     with st.spinner("In progress....🛠"):
