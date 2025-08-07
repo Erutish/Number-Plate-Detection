@@ -18,7 +18,7 @@ st.markdown(".......")
 
 uploaded_file=st.file_uploader("upload an Image", type=["png","jpg","jpeg"])
 upload_path = os.path.join(os.path.dirname(__file__), "uploads")
-os.makedirs(upload_path, exist_ok=True)
+upload_path="uploads"
 print(uploaded_file)
 if uploaded_file is not None:
     # construct the path to the uploaded image
